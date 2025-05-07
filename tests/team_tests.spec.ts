@@ -36,7 +36,7 @@ test('API GET Request USING UUID number', async({request}) => {
 
     let uuid_number = json_response['data'][0]['id'];
     
-    const response2 = await request.get('http://localhost:4242/teams{uuid_number}');
+    const response2 = await request.get('http://localhost:4242/teams/' + `${uuid_number}`);
 
     expect(response2.status()).toBe(200);
 
@@ -44,9 +44,18 @@ test('API GET Request USING UUID number', async({request}) => {
     
     // expect(json_response).toContain('Team A');
 
-
-
     
+});
+
+test('API POST Request', async({request}) => {
+    // const response = await request.get('http://localhost:4242/teams');
+
+    // expect(response.status()).toBe(200);
+
+    const text = await response.text();
+    const json_response = await response.json();
+    console.log(await response.json());
+    // expect(json_response).toContain('Team A');
 });
 
 

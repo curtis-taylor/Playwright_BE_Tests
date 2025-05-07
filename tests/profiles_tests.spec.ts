@@ -8,6 +8,6 @@ test('API GET Request', async({request}) => {
     expect(response.status()).toBe(200);
 
     const text = await response.text();
-    console.log(response.text)
+    console.log(response)
     expect(text).toContain('John Doe');
 })
